@@ -41,8 +41,8 @@ def train_transformer(data):
     preprocessor = ColumnTransformer(
         transformers=[
             ("frequency_encode", CountEncoder(normalize=True,return_df=True), frequency_enode_cols),
-            ('ohe', OneHotEncoder(sparse_output=False, handle_unknown='ignore'), ohe_cols),
-            ('tfidf', TfidfVectorizer(), tfidf_col),
+            ('ohe', OneHotEncoder(handle_unknown='ignore'), ohe_cols),
+            ('tfidf', TfidfVectorizer(max_features=85), tfidf_col),
             ('std_scaler', StandardScaler(), standard_scale_cols),
             ('minmax_scaler', MinMaxScaler(), min_max_scale_cols)
         ],
@@ -81,8 +81,9 @@ def save_transformed_data(transformed_data, save_path):
     """
         # save the transformed data
     import numpy as np 
-    np.save(save_path, transformed_data)
-
+    # np.savez_compressed(save_path, transformed_data)
+    # savez_compressed
+    save_npz(save_path, transformed_data)
 
 def calculate_similarity_scores(transformed_data,input_vector):
     """
