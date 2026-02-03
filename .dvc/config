@@ -1,0 +1,4 @@
+[core]
+    remote = allowdvc
+['remote "allowdvc"']
+    url = s3://hybrid-recommend-system-abubakar

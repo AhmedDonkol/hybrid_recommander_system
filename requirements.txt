@@ -6,3 +6,5 @@ scikit-learn
 dvc
 dask 
 scipy
+dask[complete] 
+dvc[s3]
