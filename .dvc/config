@@ -1,4 +1,6 @@
 [core]
-    remote = allowdvc
+    remote = mytempremote
 ['remote "allowdvc"']
+    url = s3://hybrid-recommend-system-abubakar
+['remote "mytempremote"']
     url = s3://hybrid-recommend-system-abubakar
